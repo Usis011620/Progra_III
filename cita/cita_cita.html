@@ -1,0 +1,50 @@
+<div class="card text-white bg-info mb-3" id="cardCita">
+    <div class="card-header">
+        REGISTRO DE CITAS
+
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" data-bs-target="#cardCita" aria-label="Close"></button>
+    </div>
+    <div class="card-body text-center">
+        <form id="frmRecetas" data-accion="nuevo" data-idreceta="0" class="row g-2">
+            <div class="col-auto">
+                <label >Nombre </label>
+                <input required placeholder="Nombre" type="text" class="form-control" id="txtNombreDoctor">
+            </div>
+            <div class="col-auto">
+                <label>Fecha de cita</label>
+                <input required type="date" class="form-control" id="txtFecha" placeholder="Fecha">
+            </div>
+            <div class="col-auto">
+                <label>Hora de cita</label>
+                <input required type="datetime" class="form-control" id="txtFecha" placeholder="Hora">
+            </div>
+            <div class="col-auto">
+                <label >Edad</label>
+                <input required type="text" class="form-control" id="txtEdadPaciente" placeholder="Edad">
+            </div>
+            <div class="col-auto">
+                <label >Motivo de Cita</label>
+                <select class="form-select" id="inputGroupSelect01">
+                    <option selected>Seleccione una opcion</option>
+                    <option value="1">Consulta</option>
+                    <option value="2">Ingreso</option>
+                    <option value="3">Vacunacion</option>
+                    <option value="4">Operacion</option>
+                  </select>
+            </div>
+            <div class="col-auto">
+                <label >Telefono</label>
+                <input required type="tel" class="form-control" id="txtTelefono" placeholder="Telefono">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-secondary mb-3">Guardar</button>
+                <button type="reset" class="btn btn-warning mb-3">Nuevo</button>
+                <button type="button" class="btn btn-success mb-3" id="btnBuscar">Buscar</button>
+            </div>
+        </form>
+        <div class="row g-2">
+            <div id="msgPaciente" class="alert alert-success d-none" role="alert"></div>
+        </div>
+    </div>
+  </div>
+</div>

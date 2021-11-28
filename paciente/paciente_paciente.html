@@ -1,0 +1,89 @@
+<div class="card text-white bg-info mb-3" id="cardPaciente">
+    <div class="card-header">
+        REGISTRO DE PACIENTES
+
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" data-bs-target="#cardPaciente" aria-label="Close"></button>
+    </div>
+    <div class="card-body">
+        <form id="frmPacientes" data-accion="nuevo" data-idpaciente="0" class="row g-2">
+            <div class="col-auto">
+                <label for="txtNombreCliente" class="visually-hidden">Nombre</label>
+                <input required placeholder="Nombre" type="text" class="form-control" id="txtNombreCliente">
+            </div>
+            <div class="col-auto">
+                <label for="txtDireccion" class="visually-hidden">Direccion</label>
+                <input type="text" class="form-control" id="txtDireccion" placeholder="Direccion">
+            </div>
+            <div class="col-auto">
+                <label for="txtEdad" class="visually-hidden">Edad</label>
+                <input required type="text" class="form-control" id="txtEdad" placeholder="Edad">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-secondary mb-3">Guardar</button>
+                <button type="reset" class="btn btn-warning mb-3">Nuevo</button>
+                <button type="button" class="btn btn-success mb-3" id="btnBuscarPaciente">Buscar</button>
+            </div>
+            
+        </form>
+        <div class="row g-2">
+            <div id="msgPaciente" class="alert alert-success d-none" role="alert"></div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function mostrarPaciente(pacientes){
+        $("#frmPacientes")
+            .data("accion","modificar")
+            .data("idpaciente",pacientes.id_Paciente);
+        $("#txtNombreCliente").val(pacientes.Nombre);
+        $("#txtDireccion").val(pacientes.Direccion);
+        $("#txtEdad").val(pacientes.Edad);
+    }
+    function limpiarDatosPaciente(){
+        $("#frmPacientes")
+            .data("accion","nuevo")
+            .data("idpaciente",0);
+        $("#frmPacientes input[type=text]").val("");
+    }
+    $(document).ready(e=>{
+        $("#btnBuscarPaciente").click(function(ev){
+            ev.preventDefault();
+            abrir_ventana("paciente", "buscar");
+        });
+        $("#frmPacientes")
+            .on('reset', e=>{
+                limpiarDatosPaciente();
+            })
+            .submit(e=>{
+            e.preventDefault();
+
+            let accion = $("#frmPacientes").data("accion"),
+                id_Paciente = $("#frmPacientes").data("idpaciente"),
+                Nombre = $("#txtNombreCliente").val(),
+                Direccion = $("#txtDireccion").val(),
+                Edad = $("#txtEdad").val(),
+                datos = {accion, id_Paciente, Nombre, Direccion, Edad};
+            $.post("http://localhost:3000/insertar",JSON.stringify(datos), (respuesta, status)=>{
+                $("#msgPaciente").removeClass("d-none").text(respuesta.resp);
+
+                if( respuesta.resp.indexOf("exito") >=0 ){
+                    limpiarDatosPaciente();
+                    consultarPacientes();
+
+                    $("#msgPaciente")
+                        .removeClass("alert-danger")
+                        .addClass("alert-success");
+                } else {
+                    $("#msgPaciente")
+                        .removeClass("alert-success")
+                        .addClass("alert-danger");
+                }
+                setTimeout(()=>{
+                    $("#msgPaciente").addClass("d-none");
+                },5000);
+            }, "json");
+        });
+    });
+</script>
