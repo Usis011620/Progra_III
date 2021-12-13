@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}  Agregar Inventario {% endblock %}
+
+{% block contenido %}
+
+<div class="card bg-primary">
+    <div class="card-header">
+        Crear Inventario
+    </div>
+    <div class="card-body bg-info">
+        <h4 class="card-title">Datos de los productos en inventario</h4>
+       {% include 'inventarios/formi.html' %} 
+
+
+    </div>
+    <div class="card- footer  text-muted">
+
+    </div>
+
+</div>
+
+{% endblock %}

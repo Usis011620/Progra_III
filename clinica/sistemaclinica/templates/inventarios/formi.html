@@ -1,0 +1,18 @@
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    
+    {% for campo2 in formulario2 %}
+    <div class="mb-3">
+        <label for="" class="form-label">{{ campo2.label }}</label>
+
+        <input type="{{ campo2.field.widget.input_type }}"
+         class="form-control" name="{{ campo2.name }}" id="" aria-describedby="helpId" placeholder="{{ campo2.label }}" value="{{ campo2.value | default:'' }}" >
+
+    </div>
+    <div class="col-12 help-text"> {{ campo2.errors }}</div>
+    {% endfor %}
+
+    <input name="" id="" class="btn btn-success" type="submit" value="Guardar">
+    <a name="" class="btn btn-primary" href="{% url 'inventarios' %}" role="button">Regresar</a>
+
+</form>

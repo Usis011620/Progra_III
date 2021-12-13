@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}  editar receta {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        Editar Receta
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del La Receta</h4>
+       {% include 'recetas/formR.html' %} 
+
+
+    </div>
+    <div class="card- footer  text-muted">
+
+    </div>
+
+</div>
+
+{% endblock %}

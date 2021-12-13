@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}  editar receta {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        Editar Inventario
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de los productos en inventario</h4>
+       {% include 'inventarios/formi.html' %} 
+
+
+    </div>
+    <div class="card- footer  text-muted">
+
+    </div>
+
+</div>
+
+{% endblock %}

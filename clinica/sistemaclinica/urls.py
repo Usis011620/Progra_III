@@ -1,0 +1,41 @@
+from django import urls
+from django.urls import path
+from . import views
+
+urlpatterns=[
+    path('', views.inicio, name='inicio'),
+    path('principal',views.principal, name='principal'),
+    path('registros',views.registros, name='registros'),
+    path('crearpaciente',views.crearpaciente, name='crearpaciente'),
+    path('editarpaciente',views.editarpaciente, name='editarpaciente'),
+    path('eliminarpaciente/<int:idPaciente>',views.eliminarpaciente, name='eliminarpaciente'),
+    path('editarpaciente/editar/<int:idPaciente>',views.editarpaciente, name='editarpaciente'),
+    path('recetas',views.recetas, name='recetas'),
+    path('crearreceta',views.crearreceta, name='crearreceta'),
+    path('editarrecetas',views.editarrecetas, name='editarrecetas'),
+    path('eliminarreceta/<int:idR>',views.eliminarreceta, name='eliminarreceta'),
+    path('editarrecetas/editar/<int:idR>',views.editarrecetas, name='editarrecetas'),
+    path('inventarios',views.inventarios, name='inventarios'),
+    path('crearinventarios',views.crearinventarios, name='crearinventarios'),
+    path('editarinventarios',views.editarinventarios, name='editarinventarios'),
+    path('eliminarinventarios/<int:idI>',views.eliminarinventarios, name='eliminarinventarios'),
+    path('editarinventarios/editar/<int:idI>',views.editarinventarios, name='editarinventarios'),
+    path('citas',views.citas, name='citas'),
+    path('crearcitas',views.crearcitas, name='crearcitas'),
+    path('eliminarcitas/<int:idC>',views.eliminarcitas, name='eliminarcitas'),
+    path('editarcitas/editar/<int:idC>',views.editarcitas, name='editarcitas'),
+    path('empleados',views.empleados, name='empleados'),
+    path('crearempleados',views.crearempleados, name='crearempleados'),
+    path('eliminarempleados/<int:idE>',views.eliminarempleados, name='eliminarempleados'),
+    path('editarempleados/editar/<int:idE>',views.editarempleados, name='editarempleados'),
+    path('editarempleados',views.editarempleados, name='editarempleados'),
+    path('medicamentos',views.medicamentos, name='medicamentos'),
+    path('crearmedicamentos',views.crearmedicamentos, name='crearmedicamentos'),
+    path('eliminarmedicamentos/<int:idM>',views.eliminarmedicamento, name='eliminarmedicamento'),
+    path('editarmedicamentos/editar/<int:idM>',views.editarmedicamentos, name='editarmedicamentos'),
+    path('jornadas',views.jornadas, name='jornadas'),
+    path('crearjornadas',views.crearjornadas, name='crearjornadas'),
+    path('eliminarjornadas/<int:idJ>',views.eliminarjornadas, name='eliminarjornadas'),
+    path('editarjornadas/editar/<int:idJ>',views.editarjornadas, name='editarjornadas'),
+
+]

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}  editar medicamento {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        Editar Medicamento
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de los medicamentos</h4>
+       {% include 'medicamentos/formm.html' %} 
+
+
+    </div>
+    <div class="card- footer  text-muted">
+
+    </div>
+
+</div>
+
+{% endblock %}

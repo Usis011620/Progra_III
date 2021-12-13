@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %}  Agregar Medicamento {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        Crear Medicamento
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de los Medicamentos</h4>
+       {% include 'medicamentos/formm.html' %} 
+
+
+    </div>
+    <div class="card- footer  text-muted">
+
+    </div>
+
+</div>
+
+{% endblock %}

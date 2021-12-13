@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block titulo %}  Agregar Jornada {% endblock %}
+
+{% block contenido %}
+
+<div class="card bg-primary">
+    <div class="card-header">
+        Crear Jornada
+    </div>
+    <div class="card-body bg-info">
+        <h4 class="card-title">Datos de las Jornadas</h4>
+       {% include 'jornadas/formj.html' %} 
+
+    </div>
+    <div class="card- footer  text-muted">
+
+    </div>
+
+</div>
+
+{% endblock %}
